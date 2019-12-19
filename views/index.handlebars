@@ -1,0 +1,94 @@
+<h1 style="text-align: center;">Burger</h1>
+<div class="wrapper">
+
+    <div class="notDevoured">
+
+        <h2>Burgers Ready to Eat</h2>
+        <ul>
+            {{#each burgers}}
+            {{#unless devoured}}
+            <li>
+                {{this.id}}. {{this.burger_name}}
+
+                <button class="change-devour" data-id="{{id}}" data-devstatus="true">
+                    Devour
+                </button>
+            </li>
+            {{/unless}}
+            {{/each}}
+        </ul>
+    </div>
+
+    <div class="alignment">
+        <div class="ate">
+            <h2>Burgers Devoured</h2>
+            <ul>
+                {{#each burgers}}
+                {{#if devoured}}
+                {{!-- {{> cats/cat-block sleep=false}} --}}
+                <li>
+                    <p style="color:grey;">
+                        {{this.id}}. {{this.burger_name}}
+
+                    </p>
+                </li>
+                {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+
+        <div id="formBurger">
+            <h2>Add a Burger</h2>
+            <form id="addBurger" class="button-size">
+                <textarea type="text" name="burger"></textarea>
+                <button type="submit">Add Burger</button>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+        // Make sure we wait to attach our handlers until the DOM is fully loaded.
+        $("#addBurger").on("submit", function (event) {
+            // Make sure to preventDefault on a submit event.
+            event.preventDefault();
+
+            var newBurger = {
+                burger_name: $("#addBurger [name=burger]").val().trim()
+            };
+
+            // Send the POST request.
+            $.ajax("/api/burgers", {
+                type: "POST",
+                data: newBurger
+            }).then(
+                function () {
+                    console.log("added new burger");
+                    // Reload the page to get the updated list
+                    location.reload();
+                }
+            );
+        });
+
+        $(".change-devour").on("click", function (event) {
+            var id = $(this).data("id");
+            var newDevourStatus = $(this).data("devstatus");
+
+            var newDevourState = {
+                devoured: newDevourStatus
+            };
+
+            // Send the PUT request.
+            $.ajax("/api/burgers/" + id, {
+                type: "PUT",
+                data: newDevourState
+            }).then(
+                function () {
+                    console.log("changed devour", newDevourStatus);
+                    // Reload the page to get the updated list
+                    location.reload();
+                }
+            );
+        });
+
+
+
+    </script>

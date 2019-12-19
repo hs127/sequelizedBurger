@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "yourRootPassword",
-    "database": "database_development",
+    "database": "sequelburger_db",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false
@@ -16,9 +16,9 @@
     "operatorsAliases": false
   },
   "production": {
-    "username": "root",
+    "username": "pry7x1moh31g5g5g",
     "password": null,
-    "database": "database_production",
+    "database": "f8267bxhprgfvs6d",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false

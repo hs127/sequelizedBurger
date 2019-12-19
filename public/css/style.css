@@ -1,0 +1,55 @@
+li {
+ 
+  margin: 5px;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.create-update-form {
+  padding: 5px;
+  margin: 5px;
+  background: aqua;
+}
+
+.form-group {
+  margin-bottom: 5px;
+  
+  
+}
+.alignment {
+display:flex; 
+flex-direction: column;
+}
+
+#formBurger{
+
+padding-right:100px;
+margin-right:20px;  
+display:flex; 
+flex-direction: column;
+
+}
+
+.ate {
+    float:left; 
+    margin-left:60px;
+}
+.notDevoured {
+    float:left; 
+    margin:10px; 
+}
+
+#addBurger{
+
+display:flex; 
+flex-direction: column;
+}
+
+.wrapper {
+    width:100%; 
+    padding:5% 0%; 
+    padding-left:33%;
+    display: inline-flex; 
+}
