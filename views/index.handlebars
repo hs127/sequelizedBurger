@@ -8,7 +8,7 @@
             {{#each burgers}}
             {{#unless devoured}}
             <li>
-                {{this.id}}. {{this.burger_name}}
+                {{this.id}}. {{this.burger}}
 
                 <button class="change-devour" data-id="{{id}}" data-devstatus="true">
                     Devour
@@ -25,10 +25,9 @@
             <ul>
                 {{#each burgers}}
                 {{#if devoured}}
-                {{!-- {{> cats/cat-block sleep=false}} --}}
                 <li>
                     <p style="color:grey;">
-                        {{this.id}}. {{this.burger_name}}
+                        {{this.id}}. {{this.burger}}
 
                     </p>
                 </li>
@@ -52,7 +51,7 @@
             event.preventDefault();
 
             var newBurger = {
-                burger_name: $("#addBurger [name=burger]").val().trim()
+                burger: $("#addBurger [name=burger]").val().trim()
             };
 
             // Send the POST request.
