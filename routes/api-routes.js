@@ -39,5 +39,17 @@ module.exports = function (app) {
             });
     });
 
+    app.put("/api/burgers/:id", function (req, res) {
+        db.Burger.update({
+            devoured: req.body.devoured
+        },
+            {
+                where: {
+                    id: req.params.id
+                }
+            }).then(function () {
+                res.redirect("/burgers");
+            });
+    });
 
 };
